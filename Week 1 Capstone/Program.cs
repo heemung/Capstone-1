@@ -18,21 +18,28 @@ namespace Week_1_Capstone
 
         static void Main(string[] args)
         {
-            bool userContinue = true;
+            bool userContinue = true, userCheckInput = true;
 
             Console.WriteLine("Welcome to the Pig Latin Translator!\n");
 
             while (userContinue)
             {
-                Console.WriteLine("Enter a line to be translated:");
-                toBeTranslated = Console.ReadLine();
+                while (userCheckInput == true)
+                {
+                    Console.WriteLine("Enter a line to be translated:");
+                    toBeTranslated = Console.ReadLine();
 
-                TestWordVowel(toBeTranslated);
-                old(positionOfVowel);
+                    if (toBeTranslated != "")
+                    {
+                        userCheckInput = false;
+                    }
+                }
+                    TestWordVowel(toBeTranslated);
+                    old(positionOfVowel);
 
-                Console.WriteLine("Do you wish to Continue? y/n?");
-                userContinue = Console.ReadLine().ToLower() == "y";
-
+                    Console.WriteLine("Do you wish to Continue? y/n?");
+                    userContinue = Console.ReadLine().ToLower() == "y";
+                
             }
         }
 
