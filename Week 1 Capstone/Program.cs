@@ -18,13 +18,16 @@ namespace Week_1_Capstone
 
         static void Main(string[] args)
         {
-            bool userContinue = true, userCheckInput = true;
+            bool userContinue = true, userCheckInput;
+
 
             Console.WriteLine("Welcome to the Pig Latin Translator!\n");
 
             while (userContinue)
             {
-                while (userCheckInput == true)
+                masterString = "";
+                userCheckInput = true;
+                while (userCheckInput)
                 {
                     Console.WriteLine("Enter a line to be translated:");
                     toBeTranslated = Console.ReadLine();
@@ -34,9 +37,9 @@ namespace Week_1_Capstone
                         userCheckInput = false;
                     }
                 }
-                    TestWordVowel(toBeTranslated);
-                    old(positionOfVowel);
 
+                    BuildSentance(toBeTranslated);
+                    Console.WriteLine(masterString);
                     Console.WriteLine("Do you wish to Continue? y/n?");
                     userContinue = Console.ReadLine().ToLower() == "y";
                 
@@ -65,7 +68,7 @@ namespace Week_1_Capstone
 
                 if (exitLoop == true)
                 {
-                    Console.WriteLine("first vowel is at position {0}", positionOfVowel);
+                    //Console.WriteLine("Letters to be moved {0}", positionOfVowel);
                     break;
                 }
 
@@ -73,26 +76,44 @@ namespace Week_1_Capstone
             }
         }
 
-        /*static string BuildSentance()
+        static void BuildSentance(string userInput)
         {
-            vowels[i];
+            //clean up sentence using 
+            string[] splits = userInput.Split(' ');
+            foreach (string s in splits)
+            {
+                TestWordVowel(s);
+                masterString += old(positionOfVowel, s) + " ";
+
+            }
+
+        }
+
+        /*static string testMethod()
+        {
+            if (s.Length > 0)
+                return s[s.Length - 1] + RecursivelyReverseString(s.Substring(0, s.Length - 1));
+            else
+                return s;
         }*/
-
-        static void old(int tempStore)
+        static string old(int tempStore, string tempWord)
         {
-            int g = toBeTranslated.Length - tempStore;
+            int g = tempWord.Length - tempStore;
 
-            string firstLetters = toBeTranslated.Substring(0, tempStore);
+            string firstLetters = tempWord.Substring(0, tempStore);
 
             if(tempStore == 0)
             {
-                Console.WriteLine("Sub String1: " + toBeTranslated.Substring(tempStore, g)
-                + firstLetters + "way");
+                tempWord = tempWord.Substring(tempStore, g) + firstLetters + "way";
+                //Console.WriteLine(tempWord);
+                return tempWord;
             }
             else
             {
-                Console.WriteLine("Sub String1: " + toBeTranslated.Substring(tempStore, g)
-                        + firstLetters + "ay");
+                tempWord = tempWord.Substring(tempStore, g) + firstLetters + "ay";
+
+                //Console.WriteLine(tempWord);
+                return tempWord;
             }
 
         }
