@@ -78,12 +78,12 @@ namespace Week_1_Capstone
 
         static void BuildSentance(string userInput)
         {
-            //clean up sentence using 
-            string[] splits = userInput.Split(' ');
-            foreach (string s in splits)
+            //clean up sentence using
+            string[] splits = userInput.Split(' ','.');
+            foreach (string x in splits)
             {
-                TestWordVowel(s);
-                masterString += old(positionOfVowel, s) + " ";
+                TestWordVowel(x);
+                masterString += old(positionOfVowel, x) + " ";
 
             }
 

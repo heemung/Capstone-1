@@ -12,3 +12,10 @@ C:\Users\Clayton\OneDrive\Git Code\Capstone-1\Week 1 Capstone\obj\Debug\Week 1 C
 C:\Users\Clayton\OneDrive\Git Code\Capstone-1\Week 1 Capstone\obj\Debug\Week 1 Capstone.csproj.CoreCompileInputs.cache
 C:\Users\Clayton\OneDrive\Git Code\Capstone-1\Week 1 Capstone\obj\Debug\Week 1 Capstone.exe
 C:\Users\Clayton\OneDrive\Git Code\Capstone-1\Week 1 Capstone\obj\Debug\Week 1 Capstone.pdb
+C:\Users\Coding\OneDrive\Coding\Capstone-1\Week 1 Capstone\bin\Debug\Week 1 Capstone.exe.config
+C:\Users\Coding\OneDrive\Coding\Capstone-1\Week 1 Capstone\bin\Debug\Week 1 Capstone.exe
+C:\Users\Coding\OneDrive\Coding\Capstone-1\Week 1 Capstone\bin\Debug\Week 1 Capstone.pdb
+C:\Users\Coding\OneDrive\Coding\Capstone-1\Week 1 Capstone\obj\Debug\Week 1 Capstone.csprojAssemblyReference.cache
+C:\Users\Coding\OneDrive\Coding\Capstone-1\Week 1 Capstone\obj\Debug\Week 1 Capstone.csproj.CoreCompileInputs.cache
+C:\Users\Coding\OneDrive\Coding\Capstone-1\Week 1 Capstone\obj\Debug\Week 1 Capstone.exe
+C:\Users\Coding\OneDrive\Coding\Capstone-1\Week 1 Capstone\obj\Debug\Week 1 Capstone.pdb
