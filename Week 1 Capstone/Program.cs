@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Week_1_Capstone
@@ -79,7 +80,10 @@ namespace Week_1_Capstone
         static void BuildSentance(string userInput)
         {
             //clean up sentence using
-            string[] splits = userInput.Split(' ','.');
+
+           // string[] result =
+            //Regex.Matches(userInput, @"[?!.,]").Cast<Match>().Select(m => m.Value).ToArray();
+            string[] splits = userInput.Split(' ');
             foreach (string x in splits)
             {
                 TestWordVowel(x);
@@ -102,7 +106,16 @@ namespace Week_1_Capstone
 
             string firstLetters = tempWord.Substring(0, tempStore);
 
-            if(tempStore == 0)
+            if(tempWord.All(char.IsDigit))
+            {
+                return tempWord;
+            }
+            else if (tempWord.Contains('@') || tempWord.Contains('.') ||
+                tempWord.Contains('?') || tempWord.Contains('!'))
+            {
+                return tempWord;
+            }
+            else if(tempStore == 0)
             {
                 tempWord = tempWord.Substring(tempStore, g) + firstLetters + "way";
                 //Console.WriteLine(tempWord);
