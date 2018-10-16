@@ -21,7 +21,6 @@ namespace Week_1_Capstone
         {
             bool userContinue = true, userCheckInput;
 
-
             Console.WriteLine("Welcome to the Pig Latin Translator!\n");
 
             while (userContinue)
@@ -69,7 +68,6 @@ namespace Week_1_Capstone
 
                 if (exitLoop == true)
                 {
-                    //Console.WriteLine("Letters to be moved {0}", positionOfVowel);
                     break;
                 }
 
@@ -77,55 +75,62 @@ namespace Week_1_Capstone
             }
         }
 
+
         static void BuildSentance(string userInput)
         {
-            //clean up sentence using
-
-           // string[] result =
-            //Regex.Matches(userInput, @"[?!.,]").Cast<Match>().Select(m => m.Value).ToArray();
             string[] splits = userInput.Split(' ');
             foreach (string x in splits)
             {
                 TestWordVowel(x);
-                masterString += old(positionOfVowel, x) + " ";
-
+                masterString += WordArguments(positionOfVowel, x) + " ";
             }
-
         }
 
-        /*static string testMethod()
+
+        static string WordArguments(int vowPosition, string tempWord)
         {
-            if (s.Length > 0)
-                return s[s.Length - 1] + RecursivelyReverseString(s.Substring(0, s.Length - 1));
+            string[] punctuation = { ".", ",", "!", "?", ":" };
+            int letterDifference = tempWord.Length - vowPosition;
+
+
+            string firstLetters = tempWord.Substring(0, vowPosition);
+
+            if(tempWord.All(char.IsDigit) || tempWord.Contains('@'))
+            {
+                return tempWord;
+            }
+            else if (punctuation.Any(s => tempWord.EndsWith(s)))
+            {
+                int grabPunctuationNum = tempWord.Length - 1;
+                string punctuation1 = tempWord.Substring(grabPunctuationNum, 1);
+
+                if(vowPosition == 0)
+                {
+                    tempWord = tempWord.Substring(vowPosition, 
+                    letterDifference - 1) + firstLetters + "way" + punctuation1;
+                    return tempWord;
+                }
+                else
+                {
+                    tempWord = tempWord.Substring(vowPosition, 
+                    letterDifference - 1) + firstLetters + "ay" + punctuation1;
+                    return tempWord;
+                }
+            }
+            else if(vowPosition == 0)
+            {
+                tempWord = tempWord.Substring(vowPosition, 
+                    letterDifference) + firstLetters + "way";
+                return tempWord;
+            }
+            else if(vowPosition > 0)
+            {
+                tempWord = tempWord.Substring(vowPosition, 
+                    letterDifference) + firstLetters + "ay";
+                return tempWord;
+            }
             else
-                return s;
-        }*/
-        static string old(int tempStore, string tempWord)
-        {
-            int g = tempWord.Length - tempStore;
-
-            string firstLetters = tempWord.Substring(0, tempStore);
-
-            if(tempWord.All(char.IsDigit))
             {
-                return tempWord;
-            }
-            else if (tempWord.Contains('@') || tempWord.Contains('.') ||
-                tempWord.Contains('?') || tempWord.Contains('!'))
-            {
-                return tempWord;
-            }
-            else if(tempStore == 0)
-            {
-                tempWord = tempWord.Substring(tempStore, g) + firstLetters + "way";
-                //Console.WriteLine(tempWord);
-                return tempWord;
-            }
-            else
-            {
-                tempWord = tempWord.Substring(tempStore, g) + firstLetters + "ay";
-
-                //Console.WriteLine(tempWord);
                 return tempWord;
             }
 
